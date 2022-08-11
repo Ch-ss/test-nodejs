@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    ul,ol,li{
+      list-style: none;
+    }
+    .banner{
+      width: 100%;
+      height: 600px;
+      position: relative;
+    }
+    .imgBox>li>img{
+      width: 100%;
+      height: 100%;
+    }
+    .imgBox{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .imgBox>li{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity .5s linear;
+    }
+    .imgBox>li.active{
+      opacity: 1;
+    }
+    ol{
+      width: 200px;
+      height: 30px;
+      position: absolute;
+      left: 20px;
+      bottom: 40px;
+      display: flex;
+      background-color: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 15px;
+    }
+    ol>li{
+      width: 20px;
+      height: 20px;
+
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    ol>.active{
+      background-color: yellow;
+    }
+    .banner>div{
+      width: 40px;
+      height: 60px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: #fff;
+    }
+    .banner>.left{
+      left: 0;
+    }
+    .banner>.right{
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <ul class="imgBox">
+      <li class="active"><img src="./img/AF5BBFD2F51AEB47ACFC80E8E0FBCBA9.jpg" alt=""></li>
+      <li><img src="./img/B88967E7B81A82986C54E0F6D548D993.jpg" alt=""></li>
+      <li><img src="./img/BB2218BFFE8906C1B1CDE5B581CA0F00.jpg" alt=""></li>
+      <li><img src="./img/肖战.jpg" alt=""></li>
+    </ul>
+    <ol>
+      <li data-i = 0 data-name="point" class="active"></li>
+      <li data-i = 1 data-name="point"></li>
+      <li data-i = 2 data-name="point"></li>
+      <li data-i = 3 data-name="point"></li>
+    </ol>
+    <div class="left">&lt;</div>
+    <div class="right">&gt;</div>
+  </div>
+  <script>
+    const btnClick = document.querySelector('.banner')
+    const imgs = document.querySelectorAll('ul>li')
+    const points = document.querySelectorAll('ol>li')
+    const left = document.querySelector('.left')
+    const right = document.querySelector('.right')
+    var index = 0
+    btnClick.onclick = function(e) {
+      if (e.target.className === 'right') {
+        btn(true)
+      }
+      if (e.target.className === 'left') {
+        btn(false)
+      }
+      if (e.target.dataset.name === 'point') {
+        var i = Number(e.target.dataset.i)
+        btn (i)
+      }
+    }
+    function btn(type) {
+      imgs[index].className = ''
+      points[index].className = ''
+      if(type === true) {
+        // 下一张图片
+        index++
+      } else if (type === false) {
+        // 上一张图片
+        index--
+      } else {
+        // 点击小按钮
+        index = type
+      }
+      if(index >= imgs.length) {
+        index = 0
+      }
+      if (index < 0) {
+        index = imgs.length-1
+      }
+      imgs[index].className = 'active'
+      points[index].className = 'active'
+    }
+    setInterval(() => {
+      btn(true)
+    },1000)
+  </script>
+</body>
+</html>

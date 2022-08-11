@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    ul,ol,li{
+      list-style: none;
+    }
+    .box{
+      width: 600px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      position: relative;
+    }
+    .box>ul{
+      height: 60px;
+      display: flex;
+    }
+    .box>ul>li{
+      flex: 1;
+      background-color: pink;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+    }
+    .box>ul>li.active{
+      background-color: blue;
+    }
+    .box>ol{
+      flex: 1;
+      position: relative;
+    }
+    .box>ol>li{
+      width: 100%;
+      height: 100%;
+      background-color: bisque;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 40px;
+      color: #fff;
+      display: none;
+    }
+    .box>ol>li.active{
+      display: flex;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul>
+      <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ol>
+      <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+  </div>
+  <script>
+    const lis = document.querySelectorAll('ul>li')
+    const tabs = document.querySelectorAll('ol>li')
+    lis.forEach((item, index) => {
+      item.onclick = function() {
+        lis.forEach((t, i) => {
+          t.className = ''
+          tabs[i].className = ''
+        })
+        item.className = 'active'
+        tabs[index].className = 'active'
+      }
+    })
+  </script>
+</body>
+</html>
