@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 将对象数组拆成一个个对象
+    let arr = [{key:1,value:18,name:'小明'},{key:2,age:24,name:'小红'}]
+    const res = arr.reduce((pre,{key,value,name,age}) => {
+      if(!pre[key]) pre[key] = {}
+      pre[key] ={
+        value,
+        name,
+        age
+      }
+      return pre
+    },{})
+    console.log(res);
+
+    // 将多个对象数组，合并一个对象数组
+    // const arr1 = [{name:'name1',age:18},{name:'name2',age:25}]
+    // const arr2 =[{value:666},{value:888}]
+    // let newArr = arr1.map((item, index) => {
+    //   return {...item,...arr2[index]}
+    // })
+    // console.log(newArr);
+
+    // 多维数组，转为字符串||一维数组
+    // let tempArr = [1,[2,3],[4,5,[6,7]]];
+    // 使用递归：
+    // let res = []
+    // function res1 (arr) {
+    //   arr.forEach((item) => {
+    //     if (Array.isArray(item)) {
+    //       res1(item,res)
+    //     } else {
+    //       res.push(item)
+    //     }
+    //   })
+    //   return res
+    // }
+    // let result1 = res1(tempArr)
+    // console.log(result1);
+    // 使用数组方法：
+    // let result = tempArr.join(',').split(',')
+    // console.log([].concat.apply([],tempArr));
+    // console.log(result);
+  </script>
+</body>
+</html>

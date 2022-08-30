@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const xhr = new XMLHttpRequest()
+    xhr.open('post', 'http://www.young1024.com:1717/v1/table/list', true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhr.send("token="+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI5OTQ3ZTllZWEyOGNhNmM4Y2RkZmUiLCJhY2NvdW50IjoieW91bmciLCJzaG9wbmFtZSI6IuWlveWlveWQg-mkkOWOhSIsImFkZHJlc3MiOiLkuIrmtbfluILmmbrmhafkuIPnq4vmlrkiLCJlbWFpbCI6IjIyNDMxMTE2MTNAcXEuY29tIiwiaWF0IjoxNjQ5MjU0MTg4LCJleHAiOjE2NDk4NTg5ODh9.-GxCaOKhrYoNCdwcnRyOFQY1hMnRvbnAZ1Z4xSvrvaA")
+    xhr.onload = function() {
+      console.log(xhr.status);
+      if (xhr.status >= 200) {
+        console.log(xhr.response);
+      }
+    }
+    console.log(xhr);
+  </script>
+</body>
+</html>

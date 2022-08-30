@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    /* .box:after,.box:before{
+      content: "";
+      display: block;
+      clear: both;
+    } */
+    .father:after{
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility:hidden;
+    }
+    .box1{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      float: left;
+    }
+    .box2{
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+      float: left;
+    }
+    .box3{
+      width: 400px;
+      height: 400px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box father">
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </div>
+  <div class="box3">big</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -100px;
+      margin-top: -100px;
+    }
+    .div1{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .div2{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1、使用position:absolute+margin实现水平垂直居中 -->
+  <!-- <div class="box"></div> -->
+  <!-- 2、使用position:absolute+translate实现水平垂直居中 -->
+  <!-- <div class="div1"></div> -->
+  <div class="div2"></div>
+</body>
+</html>

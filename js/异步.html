@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fn(time) {
+      return new Promise(function(resolve,reject) {
+        setTimeout(() => {
+          if (time %2 === 0) {
+            resolve('成功的数据time='+time)
+          } else {
+            reject('失败的数据time='+time)
+          }
+        },time)
+      })
+    }
+    // let j = fn("4")
+    // j.then(res => {
+    //   console.log(res);
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // })
+    // console.log(j)
+    async function fn1() {
+      let result = await fn(4)
+      console.log("result是" + result);
+      return result
+    }
+    let res = fn1()
+    res.then(res => {
+      console.log("res是" +res);
+    })
+    .catch(err => {
+      console.log("err是"+err);
+    })
+    console.log(res);
+  </script>
+</body>
+</html>

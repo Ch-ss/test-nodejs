@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="uploads">
+  <script>
+    const input = document.querySelector("#uploads")
+    input.addEventListener("change", (e) => {
+      console.log("e", e.target.files);
+      for(let i=0;i<e.target.files.length;i++) {
+        let url = URL.createObjectURL(e.target.files[i])
+        let reader = new FileReader();
+        let file = e.target.files[i];
+        reader.readAsDataURL(e.target.files[i]);
+        reader.onload = (e) => {
+          console.log(e.target.result);
+        }
+        console.log(url);
+      }
+    })
+  </script>
+</body>
+</html>

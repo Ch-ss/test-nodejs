@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .drap{
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+    }
+    .drop{
+      width: 400px;
+      height: 400px;
+      background-color: bisque;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="drap" draggable="true" id="drags" ondragstart = "handledragstart(event)">拖拽元素</div>
+  <div class="drop" ondrop="handledrop(event)" ondragover="allowdrops(event)">可放置区域</div>
+  <script>
+    const drap = document.querySelector(".drap")
+    const drop = document.querySelector(".drop")
+    function handledragstart(e) {
+      e.dataTransfer.setData("NODE_ID", e.target.id)
+    }
+    function allowdrops(e){
+      e.preventDefault()
+    }
+    function handledrop(e){
+      console.log(e);
+      e.preventDefault()
+      var data = e.dataTransfer.getData("NODE_ID")
+      console.log(data);
+      e.target.appendChild(document.getElementById(data))
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fn() {
+      setTimeout(() => {
+        console.log("this1" + this);
+      })
+    }
+    fn()
+    // obj = {
+    //   fn1() {
+    //     setTimeout(function() {
+    //       console.log("this2"+this);
+    //     })
+    //     setTimeout(() => {
+    //       console.log("this3" + this);
+    //     })
+    //   },
+    //   fn2:function() {
+    //     console.log("fn2"+ this);
+    //   },
+    //   fn3:() => {
+    //     console.log("fn3" + this);
+    //   }
+    // }
+    // obj.fn2()
+    // obj.fn1()
+  </script>
+</body>
+</html>
